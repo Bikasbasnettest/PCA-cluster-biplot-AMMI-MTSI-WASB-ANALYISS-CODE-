@@ -603,6 +603,37 @@ GMD<-get_model_data(model, "lrt")
 GMD
 plot(GMD)
 
+BLP1<-plot_waasby(AMMI,
+               var = 1,
+               which = "gen",
+               ncol = NULL,
+               nrow = NULL,
+               prob = 0.05,
+               export = FALSE,
+               file.type = "pdf",
+               file.name = ,
+               plot_theme = theme_metan(),
+               width = 6,
+               height = 6,
+               err.bar = TRUE,
+               size.err.bar = 0.5,
+               size.shape = 3.5,
+               size.tex.lab = 8,
+               height.err.bar = 0.3,
+               x.lim = NULL,
+               x.breaks = waiver(),
+               col.shape = c("darkgreen", "red"),
+               y.lab = "Genotypes",
+               x.lab = "Yield/ha",  # Specify your custom x-axis label here
+               n.dodge = 1,
+               check.overlap = FALSE,
+               panel.spacing = 1
+)
+BLP1
+ggsave(filename = "all genotype 76 and 77 wasb plot.jpg", plot = BLP1,
+       width = 30, height = 25, dpi = 1500, units = "cm")
+
+?waasb()
 VCO<-get_model_data(model, "vcomp")
 print(VCO, n=5000)
 
