@@ -634,6 +634,18 @@ ggsave(filename = "all genotype 76 and 77 wasb plot.jpg", plot = BLP1,
        width = 30, height = 25, dpi = 1500, units = "cm")
 
 ?waasb()
+model <- mps(Bikas,
+             env = ENV,
+             gen = GEN,
+             rep = REP,
+             resp = Y.ha)
+scenarios <- wsmp(model)
+
+plot(scenarios, type = 1)
+
+plot(scenarios, type = 2)
+
+
 VCO<-get_model_data(model, "vcomp")
 print(VCO, n=5000)
 
