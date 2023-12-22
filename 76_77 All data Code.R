@@ -541,6 +541,17 @@ model<-gamem(Bikas, GEN, REP, resp = everything())
 BLUP=gmd(model, "blupg")
 BLUP
 aku<-mgidi(model)
+#for fixing the selection intenity at different levels 
+SI = 20
+mgidi_index = mgidi(model, SI = SI)
+p1 <- plot(mgidi_index, SI = SI)
+p1
+p2 <- plot(mgidi_index, type = "contribution")
+CD<-arrange_ggplot(p1, p2)
+CD
+library(ggplot2)
+ggsave(filename = "77-78 Co-str&weak 20% si.jpg", plot = CD,
+       width = 35, height = 30, dpi = 1500, units = "cm")
 #for the extraction of the all data sets
 table2<-aku$PCA
 table3<-aku$FA
